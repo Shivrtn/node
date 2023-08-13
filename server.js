@@ -1,8 +1,5 @@
 
-// Account
-// 416575280011
-// KMS key ID
-// de09e2cb-f99e-488e-8351-ff34cbf81795
+
 
 const express = require("express");
 const bcrypt=require('bcrypt');
@@ -18,17 +15,22 @@ const pg = require('knex')({
   connection: process.env.PG_CONNECTION_STRING,
   searchPath: ['knex', 'public'],
 });
+const knex = require('knex')({
+  client: 'pg',
+  connection: {
+    host: 'dpg-cj704jdjeehc73c1k090-a',
 
-// const knex = require('knex')({
+    connectionString: 'postgres://shiv:MUZB3Puq7ZfSX2ctzFcqark3UK3WJ69o@dpg-cj704jdjeehc73c1k090-a.oregon-postgres.render.com/db_q3q0',
+    port: '5432',
+    database: 'db_q3q0',
+    user: 'shiv',
+    password: 'MUZB3Puq7ZfSX2ctzFcqark3UK3WJ69o',
+
+    ssl:true? { rejectUnauthorized: false } : false,
+  }
+});
  
-//     client: 'pg',
-//     connection: {
-//       host: 'mydb.cnrkrjmefu4x.ap-south-1.rds.amazonaws.com',
-//       user: 'postgres',
-//       port:5432,
-//       password: '1qaz2wsx',
-//       database: 'inittial_db',
-//     }});
+
 
 // knex.select('*').from('users').then(data=>console.log(data));
 
