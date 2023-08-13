@@ -75,7 +75,8 @@ async function all() {
 async function stat(req,res) {
   try {
     const result = await all();
-    res.json(result); 
+    res.status(200).send(result);
+
     console.log(result)
   } catch (e) {
   
