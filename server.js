@@ -10,11 +10,11 @@ app.use(cors());
 
 const saltRounds=10;
 
-const pg = require('knex')({
-  client: 'pg',
-  connection: process.env.PG_CONNECTION_STRING,
-  searchPath: ['knex', 'public'],
-});
+// const pg = require('knex')({
+//   client: 'pg',
+//   connection: process.env.PG_CONNECTION_STRING,
+//   searchPath: ['knex', 'public'],
+// });
 const knex = require('knex')({
   client: 'pg',
   connection: {
@@ -32,7 +32,7 @@ const knex = require('knex')({
  
 
 
-// knex.select('*').from('users').then(data=>console.log(data));
+
 
 
 app.use(body_parser.json());
@@ -45,23 +45,12 @@ app.get("/", (req, res) => {
 });
 
 
-// async function Start(req,res){
-  
-//   
-//  return(a);
-// }
-
-
-
-
-
 
  app.post("/post", async(req, res) => { 
 
     const name = req.body.name;
     const email = req.body.email;
     const password=req.body.pass;
-
 
 async function all() {
   var a ="user already registered or some other error";
@@ -75,7 +64,7 @@ async function all() {
     //await knex('passwords').insert({ user_id: data[data.length - 1].id, password_hash: hashed });
   } catch (error) {
     // res.json("Error or email already registerd:");
-    console.error("Error or email already rgisterd:", error);
+    console.error("Error or email already rgisterd:");
     // Handle the error here if needed
   }
   return(a)
@@ -87,17 +76,13 @@ async function stat(req,res) {
   try {
     const result = await all();
     res.json(result); 
-    console.log("result:###################################",
-    result,"#############################################"
-    )
-    // This will print the value of 'a' when the Promise resolves
-  } catch (error) {
+    console.log(result)
+  } catch (e) {
   
-    console.error("Error:", error); // This will handle any errors that occurred during the asynchronous operations
+    console.error("Error:", ); 
   }
 }
 
 await stat(req,res)})
-
 
 app.listen(3002);
