@@ -68,11 +68,11 @@ async function all() {
   try {
     const hashed=await bcrypt.hash(password, 10 );
 
-     await knex('users').insert({ name: name, email: email });
+     await knex('users').insert({ name: name, email: email,pass:hashed });
 
-    const data = await knex.select('*').from('users').orderBy('id', 'asc');
+    //const data = await knex.select('*').from('users').orderBy('id', 'asc');
     a="registration successful";
-    await knex('passwords').insert({ user_id: data[data.length - 1].id, password_hash: hashed });
+    //await knex('passwords').insert({ user_id: data[data.length - 1].id, password_hash: hashed });
   } catch (error) {
     // res.json("Error or email already registerd:");
     console.error("Error or email already rgisterd:", error);
